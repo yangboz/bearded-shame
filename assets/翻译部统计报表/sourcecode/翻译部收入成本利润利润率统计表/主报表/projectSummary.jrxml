@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="projectSummary" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="V_BEGINDATE" class="java.lang.String"/>
+	<parameter name="V_ENDDATE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Program Files\\Jaspersoft\\iReport-4.0.2\\myreport\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select writetotalincome,
+       writetotalexpenditure,
+       writeprofit,
+       writeprofitMargin,
+       interprettotalincome,
+       interprettotalexpenditure,
+       interpretprofit,
+       interpretprofitMargin
+from TABLE(GET_PROJECT_FUNCTION($P{V_BEGINDATE},$P{V_ENDDATE}))]]>
+	</queryString>
+	<field name="WRITETOTALINCOME" class="java.lang.String"/>
+	<field name="WRITETOTALEXPENDITURE" class="java.lang.String"/>
+	<field name="WRITEPROFIT" class="java.lang.String"/>
+	<field name="WRITEPROFITMARGIN" class="java.lang.String"/>
+	<field name="INTERPRETTOTALINCOME" class="java.lang.String"/>
+	<field name="INTERPRETTOTALEXPENDITURE" class="java.lang.String"/>
+	<field name="INTERPRETPROFIT" class="java.lang.String"/>
+	<field name="INTERPRETPROFITMARGIN" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="416" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="36"/>
+				<textElement textAlignment="Center">
+					<font size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[翻译部收入、成本、利润、利润率统计表]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="93" width="100" height="20" backcolor="#FFFFFF"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[收入(元)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="113" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{WRITETOTALINCOME}?"0.00":$F{WRITETOTALINCOME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="353" y="93" width="100" height="20" backcolor="#FFFFFF"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[支出(元)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="353" y="113" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{WRITETOTALEXPENDITURE}?"0.00":$F{WRITETOTALEXPENDITURE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="453" y="93" width="100" height="20" backcolor="#FFFFFF"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[利润(元)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="113" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{WRITEPROFIT}?"0.00":$F{WRITEPROFIT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="553" y="93" width="100" height="20" backcolor="#FFFFFF"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[利润率(%)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="553" y="113" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{WRITEPROFITMARGIN}?"0.00":$F{WRITEPROFITMARGIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="133" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{INTERPRETTOTALINCOME}?"0.00":$F{INTERPRETTOTALINCOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="133" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{INTERPRETTOTALEXPENDITURE}?"0.00":$F{INTERPRETTOTALEXPENDITURE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="133" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{INTERPRETPROFIT}?"0.00":$F{INTERPRETPROFIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="553" y="133" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[null==$F{INTERPRETPROFITMARGIN}?"0.00":$F{INTERPRETPROFITMARGIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="153" y="113" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[笔译项目]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="133" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[口译项目]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="93" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="153" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[总计]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="153" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[(null==$F{WRITETOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITETOTALINCOME})).add(null==$F{INTERPRETTOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETTOTALINCOME}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="153" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[(null==$F{WRITETOTALEXPENDITURE}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITETOTALEXPENDITURE})).add(null==$F{INTERPRETTOTALEXPENDITURE}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETTOTALEXPENDITURE}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="153" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[(null==$F{WRITEPROFIT}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITEPROFIT})).add(null==$F{INTERPRETPROFIT}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETPROFIT}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="553" y="153" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[((null==$F{WRITETOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITETOTALINCOME})).add(null==$F{INTERPRETTOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETTOTALINCOME}))).intValue()==0?new java.math.BigDecimal("0.00"):(((null==$F{WRITEPROFIT}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITEPROFIT})).add(null==$F{INTERPRETPROFIT}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETPROFIT}))).divide(((null==$F{WRITETOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{WRITETOTALINCOME})).add(null==$F{INTERPRETTOTALINCOME}?new java.math.BigDecimal("0.00"):new java.math.BigDecimal($F{INTERPRETTOTALINCOME}))), 2, BigDecimal.ROUND_HALF_EVEN).multiply(new java.math.BigDecimal("100")))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="36" width="802" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V_BEGINDATE}+"至"+$P{V_ENDDATE}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="193" width="802" height="100"/>
+				<subreportParameter name="V_BEGINDATE">
+					<subreportParameterExpression><![CDATA[$P{V_BEGINDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="V_ENDDATE">
+					<subreportParameterExpression><![CDATA[$P{V_ENDDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "writeProjectList.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="316" width="802" height="100"/>
+				<subreportParameter name="V_BEGINDATE">
+					<subreportParameterExpression><![CDATA[$P{V_BEGINDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="V_ENDDATE">
+					<subreportParameterExpression><![CDATA[$P{V_ENDDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "interrepterProjectList.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

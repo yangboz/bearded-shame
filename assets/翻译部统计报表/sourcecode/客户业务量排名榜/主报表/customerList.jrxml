@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customerList" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1"/>
+	<parameter name="V_BEGINDATE" class="java.lang.String"/>
+	<parameter name="V_ENDDATE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Program Files\\Jaspersoft\\iReport-4.0.2\\myreport\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select cus.shortname,format_num(sum(twp.income)-sum(twp.expenditure)) as profit from crm_customer cus
+right join crm_contract act on cus.id=act.customer_id
+right join tp_write_project twp on act.id=twp.contractid
+where twp.status=581 and twp.delflag=0 and twp.endDate>to_date($P{V_BEGINDATE} || ' 00:00:00','yyyy-mm-dd hh24:mi:ss')
+        and twp.endDate<to_date($P{V_ENDDATE} || ' 23:59:59','yyyy-mm-dd hh24:mi:ss')
+group by cus.shortname order by sum(twp.income)-sum(twp.expenditure) desc]]>
+	</queryString>
+	<field name="SHORTNAME" class="java.lang.String"/>
+	<field name="PROFIT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="387" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[客户业务量排名榜]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V_BEGINDATE}+"至"+$P{V_ENDDATE}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="87" width="555" height="100"/>
+				<subreportParameter name="V_BEGINDATE">
+					<subreportParameterExpression><![CDATA[$P{V_BEGINDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="V_ENDDATE">
+					<subreportParameterExpression><![CDATA[$P{V_ENDDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "writeCstList.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="187" width="555" height="100"/>
+				<subreportParameter name="V_BEGINDATE">
+					<subreportParameterExpression><![CDATA[$P{V_BEGINDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="V_ENDDATE">
+					<subreportParameterExpression><![CDATA[$P{V_ENDDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "interpretCstList.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="287" width="555" height="100"/>
+				<subreportParameter name="V_BEGINDATE">
+					<subreportParameterExpression><![CDATA[$P{V_BEGINDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="V_ENDDATE">
+					<subreportParameterExpression><![CDATA[$P{V_ENDDATE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "writeInterpretList.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+</jasperReport>

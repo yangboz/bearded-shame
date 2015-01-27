@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="brancheSummary" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="V_BEGINDATE" class="java.lang.String"/>
+	<parameter name="V_ENDDATE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select typename,companyname,breaks,totalprofitmargin
+from table(GET_BRANCH_SUMMARY_FUNCTION($P{V_BEGINDATE},$P{V_ENDDATE}))]]>
+	</queryString>
+	<field name="TYPENAME" class="java.lang.String"/>
+	<field name="COMPANYNAME" class="java.lang.String"/>
+	<field name="BREAKS" class="java.math.BigDecimal"/>
+	<field name="TOTALPROFITMARGIN" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[各销售公司收入支出统计]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="802" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V_BEGINDATE}+"至"+$P{V_ENDDATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<elementGroup/>
+			<crosstab>
+				<reportElement positionType="Float" x="0" y="0" width="802" height="42"/>
+				<crosstabParameter name="V_TOTAL_PROFITMARGIN" class="java.math.BigDecimal">
+					<parameterValueExpression><![CDATA[$F{TOTALPROFITMARGIN}]]></parameterValueExpression>
+				</crosstabParameter>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="TYPENAME" width="95">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{TYPENAME}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="95" height="25"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{TYPENAME}.substring(1)]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="COMPANYNAME" height="30" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{COMPANYNAME}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="30"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{COMPANYNAME}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="12"/>
+								</textElement>
+								<text><![CDATA[合计]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="BREAKSMeasure" class="java.math.BigDecimal" calculation="Sum">
+					<measureExpression><![CDATA[$F{BREAKS}]]></measureExpression>
+				</measure>
+				<crosstabCell width="70" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle"/>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{BREAKSMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="TYPENAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{BREAKSMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="70" columnTotalGroup="COMPANYNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle"/>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA["8利润率(%)".equals($V{TYPENAME})?$P{V_TOTAL_PROFITMARGIN}:$V{BREAKSMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="TYPENAME" columnTotalGroup="COMPANYNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{BREAKSMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>
