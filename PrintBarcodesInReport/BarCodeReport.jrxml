@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport
+		xmlns="http://jasperreports.sourceforge.net/jasperreports"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+		name="BarcodeReport3" pageWidth="595" pageHeight="1842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50">
+
+
+  <title>
+    <band height="1742">
+      <line>
+        <reportElement x="0" y="0" width="515" height="1"/>
+        <graphicElement/>
+      </line>
+      <textField>
+        <reportElement x="0" y="10" width="515" height="20"/>
+        <textElement textAlignment="Center">
+          <font size="12"/>
+        </textElement>
+        <textFieldExpression class="java.lang.String"><![CDATA["This sample uses Aspose.BarCode for Jasper Report\n" + ""]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement x="0" y="50" width="515" height="20"/>
+        <textElement textAlignment="Center">
+          <font size="12"/>
+        </textElement>
+        <textFieldExpression class="java.lang.String"><![CDATA["Printing BarCodes\n" + ""]]></textFieldExpression>
+      </textField>
+
+      <image hAlign="Center">
+        <reportElement x="0" y="100" width="500" height="250" />
+        <imageExpression class="net.sf.jasperreports.engine.JRRenderable"><![CDATA[new com.aspose.barcode.jr.BarCodeRenderer(com.aspose.barcode.jr.BarCodeAttributesFactory.Create("code text pdf417","Pdf417",java.awt.Color.BLACK))]]></imageExpression>
+      </image>
+      <image>
+        <reportElement x="0" y="350"  width="500" height="250" />
+        <imageExpression class="net.sf.jasperreports.engine.JRRenderable"><![CDATA[new com.aspose.barcode.jr.BarCodeRenderer(com.aspose.barcode.jr.BarCodeAttributesFactory.Create("code text code 128","Code128",java.awt.Color.BLUE))]]></imageExpression>
+      </image>
+      <image>
+        <reportElement x="0" y="600"  width="500" height="250" />
+        <imageExpression class="net.sf.jasperreports.engine.JRRenderable"><![CDATA[new com.aspose.barcode.jr.BarCodeRenderer(com.aspose.barcode.jr.BarCodeAttributesFactory.Create("code text Datamatrix","Datamatrix",java.awt.Color.BLUE))]]></imageExpression>
+      </image>
+    </band>
+  </title>
+</jasperReport>
