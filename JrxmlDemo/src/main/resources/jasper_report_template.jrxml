@@ -1,81 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN"
-"http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
-http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-name="jasper_report_template" language="groovy" pageWidth="595"
-pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
-topMargin="20" bottomMargin="20">
-
-    <queryString>
-	<![CDATA[]]>
-    </queryString>
-    <field name="country" class="java.lang.String">
-        <fieldDescription><![CDATA[country]]></fieldDescription>
-    </field>
-    <field name="name" class="java.lang.String">
-        <fieldDescription><![CDATA[name]]></fieldDescription>
-    </field>
-    <columnHeader>
-     <band height="23">
-	<staticText>
-	    <reportElement mode="Opaque" x="0" y="3" width="535"
-		 height="15" backcolor="#70A9A9" />
-	    <box>
-	        <bottomPen lineWidth="1.0" lineColor="#CCCCCC" />
-	    </box>
-	    <textElement />
-	    <text><![CDATA[]]> </text>
-	</staticText>
-	<staticText>
-	    <reportElement x="414" y="3" width="121" height="15" />
-	    <textElement textAlignment="Center"
-	        verticalAlignment="Middle">
-		<font isBold="true" />
-	    </textElement>
-	    <text><![CDATA[Country]]></text>
-	</staticText>
-	<staticText>
-	    <reportElement x="0" y="3" width="136" height="15" />
-	    <textElement textAlignment="Center"
-	        verticalAlignment="Middle">
-		<font isBold="true" />
-	    </textElement>
-	    <text><![CDATA[Name]]></text>
-	</staticText>
-     </band>
-    </columnHeader>
-    <detail>
-        <band height="16">
-	 <staticText>
-	     <reportElement mode="Opaque" x="0" y="0" width="535"
-		 height="14" backcolor="#E5ECF9" />
-	     <box>
-	            <bottomPen lineWidth="0.25" lineColor="#CCCCCC" />
-	     </box>
-	     <textElement />
-	     <text><![CDATA[]]> </text>
-	 </staticText>
-	 <textField>
-	     <reportElement x="414" y="0" width="121" height="15" />
-	     <textElement textAlignment="Center"
-	         verticalAlignment="Middle">
-		 <font size="9" />
-	     </textElement>
-	     <textFieldExpression class="java.lang.String">
-	         <![CDATA[$F{country}]]>
-		</textFieldExpression>
-	 </textField>
-	 <textField>
-	     <reportElement x="0" y="0" width="136" height="15" />
-	     <textElement textAlignment="Center"
-	         verticalAlignment="Middle" />
-	         <textFieldExpression class="java.lang.String">
-			<![CDATA[$F{name}]]>
-	         </textFieldExpression>
-	 </textField>
-        </band>
-    </detail>
+<!-- Created with Jaspersoft Studio version 6.0.1.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-02-09T20:26:00 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c269aec7-6ddb-4788-bc05-9ee7259835b6">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="country" class="java.lang.String">
+		<fieldDescription><![CDATA[country]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="3" width="535" height="15" backcolor="#70A9A9" uuid="f716c738-f8d7-4ac3-9d31-23f398d3cdfe"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="3" width="121" height="15" uuid="905e3bbb-b8b5-41d0-9b22-354a47a6cb30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3" width="136" height="15" uuid="8dea6f5b-958e-4429-a4fc-8abcc0e53dad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="535" height="14" backcolor="#E5ECF9" uuid="d011b4e5-e3ec-439a-98f9-48a5a542f201"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="414" y="0" width="121" height="15" uuid="c72a2185-efe5-4c88-946b-c7ac15533237"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Simhei" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="136" height="15" uuid="37ebc9fa-d076-4e39-8fe6-8abb77f4e39f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
 </jasperReport>
