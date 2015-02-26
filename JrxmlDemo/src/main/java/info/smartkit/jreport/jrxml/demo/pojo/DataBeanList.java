@@ -30,7 +30,7 @@ public class DataBeanList
     {
         ArrayList<DataBean> dataBeanList = new ArrayList<DataBean>();
 
-        dataBeanList.add(produce("Manisha", "中国", 123));
+        dataBeanList.add(produce("Manisha", "中国", 112233));
         dataBeanList.add(produce("Dennis Ritchie", "USA", 456));
         dataBeanList.add(produce("V.Anand", "India", 789));
         dataBeanList.add(produce("Shrinath", "California", 123456));
