@@ -30,10 +30,10 @@ public class DataBeanList
     {
         ArrayList<DataBean> dataBeanList = new ArrayList<DataBean>();
 
-        dataBeanList.add(produce("Manisha", "中国", 112233));
-        dataBeanList.add(produce("Dennis Ritchie", "한국", 456));
-        dataBeanList.add(produce("V.Anand", "India", 789));
-        dataBeanList.add(produce("Shrinath", "California", 123456));
+        dataBeanList.add(produce("Manisha", "中国", 112233, "AA"));
+        dataBeanList.add(produce("Dennis Ritchie", "한국", 456, "BB"));
+        dataBeanList.add(produce("V.Anand", "India", 789, "CC"));
+        dataBeanList.add(produce("Shrinath", "California", 123456, "DD"));
 
         return dataBeanList;
     }
@@ -41,12 +41,14 @@ public class DataBeanList
     /**
      * This method returns a DataBean object, with name and country set in it.
      */
-    private DataBean produce(String name, String country, long id)
+    private DataBean produce(String name, String country, long id, String expenses_owner)
     {
         DataBean dataBean = new DataBean();
         dataBean.setName(name);
         dataBean.setCountry(country);
         dataBean.setId(id);
+        //
+        dataBean.setExpenses_owner(expenses_owner);
         return dataBean;
     }
 }
