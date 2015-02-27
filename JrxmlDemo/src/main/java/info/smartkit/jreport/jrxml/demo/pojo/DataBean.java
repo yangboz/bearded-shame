@@ -24,40 +24,34 @@ package info.smartkit.jreport.jrxml.demo.pojo;
  */
 public class DataBean
 {
-    private String name;
-
-    private String country;
-
-    public String getName()
+    public DataBean(long expenses_id, String expenses_owner, String expenses_name, String expenses_date,
+        long expenses_invoices_num, String items_date, String items_vendors, String items_invoices, String items_notes,
+        String items_participantIds, long items_amount)
     {
-        return name;
+        this.expenses_id = expenses_id;
+        this.expenses_date = expenses_date;
+        this.expenses_name = expenses_name;
+        this.expenses_owner = expenses_owner;
+        this.expenses_invoices_num = expenses_invoices_num;
+
+        this.items_date = items_date;
+        this.items_invoices = items_invoices;
+        this.items_notes = items_notes;
+        this.items_participantIds = items_participantIds;
+        this.items_vendors = items_vendors;
+        this.items_amount = items_amount;
     }
 
-    public void setName(String name)
+    private long expenses_id;
+
+    public long getExpenses_id()
     {
-        this.name = name;
+        return expenses_id;
     }
 
-    public String getCountry()
+    public void setExpenses_id(long expenses_id)
     {
-        return country;
-    }
-
-    public void setCountry(String country)
-    {
-        this.country = country;
-    }
-
-    private long id;
-
-    public long getId()
-    {
-        return id;
-    }
-
-    public void setId(long id)
-    {
-        this.id = id;
+        this.expenses_id = expenses_id;
     }
 
     private String expenses_owner;
@@ -94,6 +88,90 @@ public class DataBean
     public void setExpenses_date(String expenses_date)
     {
         this.expenses_date = expenses_date;
+    }
+
+    private long expenses_invoices_num;
+
+    public long getExpenses_invoices_num()
+    {
+        return expenses_invoices_num;
+    }
+
+    public void setExpenses_invoices_num(long expenses_invoices_num)
+    {
+        this.expenses_invoices_num = expenses_invoices_num;
+    }
+
+    private String items_date;
+
+    public String getItems_date()
+    {
+        return items_date;
+    }
+
+    public void setItems_date(String items_date)
+    {
+        this.items_date = items_date;
+    }
+
+    private String items_vendors;
+
+    public String getItems_vendors()
+    {
+        return items_vendors;
+    }
+
+    public void setItems_vendors(String items_vendors)
+    {
+        this.items_vendors = items_vendors;
+    }
+
+    private String items_notes;
+
+    public String getItems_notes()
+    {
+        return items_notes;
+    }
+
+    public void setItems_notes(String items_notes)
+    {
+        this.items_notes = items_notes;
+    }
+
+    private String items_invoices;
+
+    public String getItems_invoices()
+    {
+        return items_invoices;
+    }
+
+    public void setItems_invoices(String items_invoices)
+    {
+        this.items_invoices = items_invoices;
+    }
+
+    private String items_participantIds;
+
+    public String getItems_participantIds()
+    {
+        return items_participantIds;
+    }
+
+    public void setItems_participantIds(String items_participantIds)
+    {
+        this.items_participantIds = items_participantIds;
+    }
+
+    private long items_amount;
+
+    public long getItems_amount()
+    {
+        return items_amount;
+    }
+
+    public void setItems_amount(long items_amount)
+    {
+        this.items_amount = items_amount;
     }
 
 }

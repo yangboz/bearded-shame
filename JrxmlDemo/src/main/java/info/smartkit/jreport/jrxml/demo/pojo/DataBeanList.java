@@ -29,29 +29,13 @@ public class DataBeanList
     public ArrayList<DataBean> getDataBeanList()
     {
         ArrayList<DataBean> dataBeanList = new ArrayList<DataBean>();
-
-        dataBeanList.add(produce("Manisha", "中国", 112233, "AA", "2012-05-07", "吃吃喝喝"));
-        dataBeanList.add(produce("Dennis Ritchie", "한국", 456, "BB", "2012-05-07", "吃吃喝喝"));
-        dataBeanList.add(produce("V.Anand", "India", 789, "CC", "2012-05-07", "吃吃喝喝"));
-        dataBeanList.add(produce("Shrinath", "California", 123456, "DD", "2012-05-07", "吃吃喝喝"));
-
+        //
+        dataBeanList.add(new DataBean(112233, "2012-05-07", "高老师", "吃吃喝喝", 5, "2012-04-27", "商家0", "i1", "说明000", "BB",
+            296));
+        dataBeanList
+            .add(new DataBean(22222, "2012-06-01", "USA", "AA", 5, "2012-05-27", "商家1", "i2", "说明001", "BB", 77));
+        dataBeanList.add(new DataBean(3333, "2012-07-08", "한국", "AA", 5, "2012-06-27", "商家2", "i3", "说明002", "BB", 88));
         return dataBeanList;
     }
 
-    /**
-     * This method returns a DataBean object, with name and country set in it.
-     */
-    private DataBean produce(String name, String country, long id, String expenses_owner, String expenses_date,
-        String expenses_name)
-    {
-        DataBean dataBean = new DataBean();
-        dataBean.setName(name);
-        dataBean.setCountry(country);
-        dataBean.setId(id);
-        //
-        dataBean.setExpenses_owner(expenses_owner);
-        dataBean.setExpenses_name(expenses_name);
-        dataBean.setExpenses_date(expenses_date);
-        return dataBean;
-    }
 }

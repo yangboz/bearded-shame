@@ -54,9 +54,10 @@ public class JasperReportFill
         String printFileName = null;
         DataBeanList DataBeanList = new DataBeanList();
         ArrayList dataList = DataBeanList.getDataBeanList();
-        JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(dataList);
+        JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(dataList, true);
 
         Map parameters = new HashMap();
+        long start = System.currentTimeMillis();
         try {
             printFileName = JasperFillManager.fillReportToFile(JASPER_DEST_FILE, parameters, beanColDataSource);
             if (printFileName != null) {
@@ -83,5 +84,6 @@ public class JasperReportFill
         } catch (JRException e) {
             e.printStackTrace();
         }
+        System.err.println("JasperReport Filling time : " + (System.currentTimeMillis() - start));
     }
 }
