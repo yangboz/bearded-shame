@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.0.1.final using JasperReports Library version 6.0.0  -->
-<!-- 2015-02-14T16:25:10 -->
+<!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
+<!-- 2015-02-27T11:17:31 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c269aec7-6ddb-4788-bc05-9ee7259835b6">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="id" class="java.lang.String">
+	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
 	<field name="country" class="java.lang.String">
@@ -15,65 +15,94 @@
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
+	<variable name="total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
 	<columnHeader>
-		<band height="67" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="3" width="535" height="15" backcolor="#70A9A9" uuid="f716c738-f8d7-4ac3-9d31-23f398d3cdfe"/>
-				<box>
-					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
-				</box>
-				<text><![CDATA[ ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="414" y="3" width="121" height="15" uuid="905e3bbb-b8b5-41d0-9b22-354a47a6cb30"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Country]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="140" y="3" width="136" height="15" uuid="8dea6f5b-958e-4429-a4fc-8abcc0e53dad"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Name]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="3" width="136" height="15" uuid="9a35a0d8-0d92-4b36-a511-d68c6a074f34"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[ID]]></text>
-			</staticText>
-		</band>
+		<band height="67" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="535" height="33" backcolor="#E5ECF9" uuid="d011b4e5-e3ec-439a-98f9-48a5a542f201"/>
+				<reportElement mode="Opaque" x="0" y="10" width="535" height="33" backcolor="#E5ECF9" uuid="d011b4e5-e3ec-439a-98f9-48a5a542f201"/>
 				<box>
 					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
 				</box>
 				<text><![CDATA[ ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="410" y="9" width="121" height="15" uuid="c72a2185-efe5-4c88-946b-c7ac15533237"/>
+				<reportElement x="410" y="19" width="121" height="15" uuid="c72a2185-efe5-4c88-946b-c7ac15533237"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Simhei" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="140" y="9" width="136" height="15" uuid="37ebc9fa-d076-4e39-8fe6-8abb77f4e39f"/>
+				<reportElement x="140" y="19" width="136" height="15" uuid="37ebc9fa-d076-4e39-8fe6-8abb77f4e39f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="0" y="1" width="100" height="30" uuid="17f4a7cb-a5ef-48e7-8290-4b7b6bf93277"/>
+				<reportElement x="0" y="11" width="100" height="30" uuid="17f4a7cb-a5ef-48e7-8290-4b7b6bf93277"/>
 				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<jr:codeExpression><![CDATA[$F{id}]]></jr:codeExpression>
 				</jr:Code39>
 			</componentElement>
+			<staticText>
+				<reportElement x="140" y="-7" width="136" height="15" uuid="8dea6f5b-958e-4429-a4fc-8abcc0e53dad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-7" width="535" height="15" backcolor="#70A9A9" uuid="f716c738-f8d7-4ac3-9d31-23f398d3cdfe"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="-7" width="121" height="15" uuid="905e3bbb-b8b5-41d0-9b22-354a47a6cb30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="-7" width="136" height="15" uuid="9a35a0d8-0d92-4b36-a511-d68c6a074f34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="-7" width="136" height="15" uuid="030be006-74f0-495f-9e97-f83ef6908ab2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
 		</band>
 	</detail>
+	<summary>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="74baccee-c38a-4242-9925-d67d90375701"/>
+				<box leftPadding="10"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="b3859f50-027e-4258-9096-45fca552a482"/>
+				<box leftPadding="10"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
 </jasperReport>
