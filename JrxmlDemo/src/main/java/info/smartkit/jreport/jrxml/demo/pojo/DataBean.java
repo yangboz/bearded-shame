@@ -60,4 +60,40 @@ public class DataBean
         this.id = id;
     }
 
+    private String expenses_owner;
+
+    public String getExpenses_owner()
+    {
+        return expenses_owner;
+    }
+
+    public void setExpenses_owner(String expenses_owner)
+    {
+        this.expenses_owner = expenses_owner;
+    }
+
+    private String expenses_name;
+
+    public String getExpenses_name()
+    {
+        return expenses_name;
+    }
+
+    public void setExpenses_name(String expenses_name)
+    {
+        this.expenses_name = expenses_name;
+    }
+
+    private String expenses_date;
+
+    public String getExpenses_date()
+    {
+        return expenses_date;
+    }
+
+    public void setExpenses_date(String expenses_date)
+    {
+        this.expenses_date = expenses_date;
+    }
+
 }
