@@ -38,8 +38,13 @@ import net.sf.jasperreports.engine.export.JRXlsExporter;
  */
 public class JasperReportFill
 {
-    private final static String JASPER_REPORT_BASE =
-        "/Users/yangboz/Documents/Git/bearded-shame/JrxmlDemo/src/main/resources/jasper_report_template";
+    public static String getClassPath()
+    {
+        String classPath = JasperReportFill.class.getResource("/").getPath();
+        return classPath;
+    }
+
+    private final static String JASPER_REPORT_BASE = getClassPath() + "jasper_report_template";
 
     private final static String JRXML_SOURCE_FILE = JASPER_REPORT_BASE + ".jrxml";
 
