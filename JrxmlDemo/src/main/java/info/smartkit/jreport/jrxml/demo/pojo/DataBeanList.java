@@ -30,8 +30,8 @@ public class DataBeanList
     {
         ArrayList<DataBean> dataBeanList = new ArrayList<DataBean>();
         //
-        dataBeanList.add(new DataBean(112233, "2012-05-07", "高老师", "吃吃喝喝", 5, "2012-04-27", "商家0", "i1", "说明000", "BB",
-            296));
+        dataBeanList.add(new DataBean(112233, "2012-05-07", "员工000", "吃吃喝喝", 5, "2012-04-27", "商家0", "i1", "说明000",
+            "BB", 296));
         dataBeanList
             .add(new DataBean(22222, "2012-06-01", "USA", "AA", 5, "2012-05-27", "商家1", "i2", "说明001", "BB", 77));
         dataBeanList.add(new DataBean(3333, "2012-07-08", "한국", "AA", 5, "2012-06-27", "商家2", "i3", "说明002", "BB", 88));
