@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template2_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="78a715ee-0dbe-4f41-bdf5-93f3f0244a11">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="beanData" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="expenses_date" class="java.lang.String">
+		<fieldDescription><![CDATA[expenses_date]]></fieldDescription>
+	</field>
+	<field name="expenses_id" class="java.lang.Long">
+		<fieldDescription><![CDATA[expenses_id]]></fieldDescription>
+	</field>
+	<field name="expenses_invoices_num" class="java.lang.Long">
+		<fieldDescription><![CDATA[expenses_invoices_num]]></fieldDescription>
+	</field>
+	<field name="expenses_name" class="java.lang.String">
+		<fieldDescription><![CDATA[expenses_name]]></fieldDescription>
+	</field>
+	<field name="expenses_owner" class="java.lang.String">
+		<fieldDescription><![CDATA[expenses_owner]]></fieldDescription>
+	</field>
+	<field name="items_amount" class="java.lang.Long">
+		<fieldDescription><![CDATA[items_amount]]></fieldDescription>
+	</field>
+	<field name="items_date" class="java.lang.String">
+		<fieldDescription><![CDATA[items_date]]></fieldDescription>
+	</field>
+	<field name="items_invoices" class="java.lang.String">
+		<fieldDescription><![CDATA[items_invoices]]></fieldDescription>
+	</field>
+	<field name="items_notes" class="java.lang.String">
+		<fieldDescription><![CDATA[items_notes]]></fieldDescription>
+	</field>
+	<field name="items_participantIds" class="java.lang.String">
+		<fieldDescription><![CDATA[items_participantIds]]></fieldDescription>
+	</field>
+	<field name="items_vendors" class="java.lang.String">
+		<fieldDescription><![CDATA[items_vendors]]></fieldDescription>
+	</field>
+	<variable name="account_sum" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{items_amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="0" width="80" height="20" uuid="1eba1895-f626-42f6-a36b-498d478ebc6e"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="0" width="62" height="20" uuid="f0cff620-e8a5-443b-8bfe-3707617c5b4b"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[商家]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="0" width="65" height="20" uuid="116ff781-3366-43c2-be16-2b598c2b4ee8"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[附件]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="0" width="100" height="20" uuid="7edc53b4-ee4e-4f64-8ecf-1cc49639d3aa"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[说明]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="100" height="20" uuid="06940656-b0ed-4d48-9ead-5c97a6d2957e"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[其他人员]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="100" height="20" uuid="c806a6d0-0100-4813-9278-efa994836640"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[费用]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="0" width="80" height="20" uuid="773adde5-0e84-447f-a841-e8a164895e95"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="0" width="62" height="20" uuid="8cb419b9-3797-40e1-b689-c05dae300a9a"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_vendors}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="0" width="65" height="20" uuid="e499333a-4fea-4cc4-b270-a6c481a5e0fc"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_invoices}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="0" width="100" height="20" uuid="57a965ff-de95-4542-8c05-040254f31bbc"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_notes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="20" uuid="0f2127ec-c6cd-4bf1-b051-7c1e77cb5d1c"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_participantIds}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="100" height="20" uuid="6b1b7a34-db77-48d5-850d-c62efbdc1b7c"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{items_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="0" width="100" height="20" uuid="d902b990-1bd5-45ed-8dd0-070267783904"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{account_sum}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="334" y="0" width="100" height="20" uuid="76a8f5fe-9c62-4efb-9896-f39194d22aaf"/>
+				<textElement>
+					<font fontName="Simhei" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[合计]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
