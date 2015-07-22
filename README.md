@@ -12,11 +12,11 @@ https://maven-repository.com/artifact/net.sf.barcode4j/barcode4j-fop-ext-complet
 
 # Roadmap
 
-*Docer deploy
+*Docer deploy*
 
-*Jenkins CI
+*Jenkins CI*
 
-*Report as a Service
+*Report as a Service*
 
 # Reference
 
