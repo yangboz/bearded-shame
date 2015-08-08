@@ -15,15 +15,18 @@
  * 
  * All rights reserved.
  */
-package bearded.shame.report.jasper;
+package info.smartkit.jreport;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 /**
  * @see: https://spring.io/guides/gs/actuator-service/
  * @author yangboz
  */
+@PropertySources({ @PropertySource(value = "classpath:application-${spring.profiles.active}.properties") })
 @SpringBootApplication
 public class Application
 {

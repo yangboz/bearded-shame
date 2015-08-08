@@ -1,5 +1,8 @@
-package bearded.shame.report.jasper;
+package info.smartkit.jreport.dto;
 
+/**
+ * The Class JsonObject.
+ */
 public class JsonObject {
 	public JsonObject(Object data) {
 		this.data = data;

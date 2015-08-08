@@ -1,4 +1,4 @@
-package bearded.shame.report.jasper;
+package info.smartkit.jreport.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import info.smartkit.jreport.DataBeanList;
+import info.smartkit.jreport.dto.JsonObject;
+
 /**
  * Handles Dynamic/Jasper reports download requests
  * 
  * @author Krams at {@link http://krams915@blogspot.com}
  */
 @RestController
-@RequestMapping("/report")
+@RequestMapping("/info/smartkit/jreport")
 public class ReportController
 {
     public static enum DocType

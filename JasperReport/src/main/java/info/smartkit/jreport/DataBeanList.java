@@ -15,7 +15,7 @@
  * 
  * All rights reserved.
  */
-package bearded.shame.report.jasper;
+package info.smartkit.jreport;
 
 import java.util.ArrayList;
 
